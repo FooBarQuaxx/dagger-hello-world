@@ -3,6 +3,10 @@
 pipeline {
     agent any
 
+    options {
+        ansiColor('xterm')
+    }
+
     environment {
         dagger = tool name: 'dagger', type: 'com.cloudbees.jenkins.plugins.customtools.CustomTool' 
     }
@@ -18,7 +22,7 @@ pipeline {
         stage('test') {
             steps {
                 sh "${env.dagger} version"
-                sh "${env.dagger} do hello --log-format tty"
+                sh "${env.dagger} do hello --log-format plain"
             }
         }
     }
