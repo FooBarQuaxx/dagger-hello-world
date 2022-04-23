@@ -19,9 +19,9 @@ pipeline {
             steps {
                 sh "${env.dagger} version"
                 sh "${env.dagger} project init"
+                sh "${env.dagger} project update"
                 sh "${env.dagger} do"
                 sh "${env.dagger} do hello --log-format plain"
-
             }
         }
     }
