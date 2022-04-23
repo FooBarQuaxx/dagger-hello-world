@@ -18,7 +18,7 @@ pipeline {
         stage('test') {
             steps {
                 sh "${env.dagger} version"
-                sh "${env.dagger} do hello --log-format plain"
+                sh "${env.dagger} do hello --log-format tty"
             }
         }
     }
